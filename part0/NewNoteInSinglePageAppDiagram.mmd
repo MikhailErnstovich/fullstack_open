@@ -1,0 +1,12 @@
+---
+config:
+  theme: dark
+---
+
+sequenceDiagram
+  Note right of browser: The base URL for each request is https://studies.cs.helsinki.fi/exampleapp
+  participant browser as browser
+  participant server as server
+  browser ->>+ server: POST /new_note_spa body: { content: "MESSAGE", date: "DATE" }
+  Note right of browser: Browser adds a new note to the list and rerenders it. Then sends the note to server.
+  server -->>- browser: body: {"message":"note created"}

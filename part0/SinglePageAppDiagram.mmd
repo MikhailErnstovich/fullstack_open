@@ -1,0 +1,20 @@
+---
+config:
+  theme: dark
+---
+
+sequenceDiagram
+  Note right of browser: The base URL for each request is https://studies.cs.helsinki.fi/exampleapp
+  participant browser as browser
+  participant server as server
+  browser ->>+ server: GET /spa
+  server -->>- browser: spa.html file 
+
+    browser ->>+ server: GET /main.css
+      server -->>- browser: main.css file
+      browser ->>+ server: GET /spa.js
+      server -->>- browser: spa.js file
+      Note right of browser: browser executes main.js and fetches data.json
+      browser ->>+ server: GET /data.json
+      server -->>- browser: data.json file
+      Note right of browser: browser renders messages from data.json
